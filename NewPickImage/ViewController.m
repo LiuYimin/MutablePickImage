@@ -10,6 +10,7 @@
 #import "PictureSelectedView.h"
 #import <Photos/Photos.h>
 #import "MutablePickerController.h"
+#import "LMMainPickerVC.h"
 
 @interface ViewController ()
 {
@@ -51,93 +52,6 @@
     // Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)mianshi {
-    NSArray *arr = @[@1,@3,@2,@4,@1,@2,@3];
-    
-    float mianji = 0;
-    
-//    for (NSInteger i = 0; i<arr.count; i++) {
-//        if (i==0 || i==arr.count-1) {
-//            continue;
-//        }
-//        
-//        float last = [arr[i-1] floatValue];
-//        float now = [arr[i] floatValue];
-//        float future = [arr[i+1] floatValue];
-//        
-//        BOOL now_last = now > last;
-//        BOOL now_future = now > future;
-//        
-//        if (!now_last && !now_future) {
-//            float LHeight = last - now;
-//            float RHeight = future - now;
-//            
-//            float height = LHeight<RHeight?LHeight:RHeight;
-//            
-//            mianji += height*1;
-//        }
-//    }
-    
-    for (NSInteger i = 0; i<arr.count;) {
-        if (i == 0 || i == arr.count-1) {
-            i++;
-            continue;
-        }
-        
-        float now = [arr[i] floatValue];
-        
-        NSInteger j = i+1;
-        NSInteger sMax = j;
-        for (; j<arr.count; j++) {
-            
-            float next = [arr[j] floatValue];
-            if (now > next) {
-                if ([arr[sMax] floatValue] < [arr[j] floatValue]) {
-                    sMax = j;
-                }
-                continue;
-            }else {
-                break;
-            }
-        }
-        
-        if (j == arr.count) {
-            float tmpMianji = 0;
-            
-            for (NSInteger k = i+1; k<sMax; k++) {
-                if (k == sMax) {
-                    break;
-                }
-                
-                float mid = [arr[k] floatValue];
-                tmpMianji += mid*1;
-            }
-            
-            mianji += [arr[sMax] floatValue]*(sMax-i-1) - tmpMianji;
-            
-            i = sMax;
-        }else {
-            float tmpMianji = 0;
-            
-            for (NSInteger k = i+1; k<j; k++) {
-                if (k == j) {
-                    break;
-                }
-                
-                float mid = [arr[k] floatValue];
-                tmpMianji += mid*1;
-            }
-            
-            mianji += now*(j-i-1) - tmpMianji;
-            
-            i = j;
-        }
-    }
-    
-    
-    NSLog(@"%.2f",mianji);
-}
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -175,93 +89,20 @@
     return title;
 }
 
-//#pragma mark - 获取指定相册内的所有图片
-//- (NSArray<PHAsset *> *)getAssetsInAssetCollection:(PHAssetCollection *)assetCollection ascending:(BOOL)ascending
-//{
-//    NSMutableArray<PHAsset *> *arr = [NSMutableArray array];
-//    
-//    PHFetchResult *result = [self fetchAssetsInAssetCollection:assetCollection ascending:ascending];
-//    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOLBOOL * _Nonnull stop) {
-//        [arr addObject:obj];//这个obj即PHAsset对象
-//    }];
-//    return arr;
-//}
-
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-    MutablePickerController *mpc = [[MutablePickerController alloc] init];
-    NSLog(@"Mutable origal %@",mpc);
-    mpc.returnBlock = ^(NSArray *arr) {
-        NSLog(@"aaaaa%@",arr);
-    };
-    [self presentViewController:mpc animated:YES completion:nil];
+//    MutablePickerController *mpc = [[MutablePickerController alloc] init];
+//    NSLog(@"Mutable origal %@",mpc);
+//    mpc.returnBlock = ^(NSArray *arr) {
+//        NSLog(@"aaaaa%@",arr);
+//    };
+//    mpc.modalPresentationStyle = UIModalPresentationFullScreen;
+//    [self presentViewController:mpc animated:YES completion:nil];
+}
+- (IBAction)onGotoPickerPage:(id)sender {
+    LMMainPickerVC *vc = [[LMMainPickerVC alloc] init];
+    vc.modalPresentationStyle = UIModalPresentationFullScreen;
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 
-
-//- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    UITouch *touch = [touches anyObject];
-//    _startPoint = [touch locationInView:self.view];
-////    self.collectionView.prohibitScrollView = YES;
-//    NSLog(@"startPoint: %@",NSStringFromCGPoint(_startPoint));
-//}
-//
-//- (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    UITouch *touch = [touches anyObject];
-//    _endPoint = [touch locationInView:self.view];
-//    NSLog(@"move: %@",NSStringFromCGPoint(_endPoint));
-//}
-//
-//- (void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    UITouch *touch = [touches anyObject];
-//    _endPoint = [touch locationInView:self.view];
-//    NSLog(@"endPoint: %@",NSStringFromCGPoint(_endPoint));
-//}
-//
-//- (void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
-//    _startPoint = CGPointZero;
-//    _endPoint = CGPointZero;
-//    NSLog(@"cancel Touch");
-//}
-
-
-//#pragma mark - 获取相册内所有照片资源
-//- (NSArray<PHAsset *> *)getAllAssetInPhotoAblumWithAscending:(BOOL)ascending
-//{
-//    NSMutableArray<PHAsset *> *assets = [NSMutableArray array];
-//    
-//    PHFetchOptions *option = [[PHFetchOptions alloc] init];
-//    //ascending 为YES时，按照照片的创建时间升序排列;为NO时，则降序排列
-//    option.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"creationDate" ascending:ascending]];
-//    
-//    PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:option];
-//    
-//    
-//    
-//    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-//        PHAsset *asset = (PHAsset *)obj;
-//        NSLog(@"照片名%@", [asset valueForKey:@"filename"]);
-//        [assets addObject:asset];
-//    }];
-//    
-//    return assets;
-//}
-
-//- (NSMutableArray *)groups{
-//    if (_groups == nil) {
-//        _groups = [NSMutableArray array];
-//        dispatch_async(dispatch_get_main_queue(), ^{
-//            [self.assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-//                if(group){
-//                    [_groups addObject:group];
-//                    [self.tableView reloadData];
-//                }
-//            } failureBlock:^(NSError *error) {
-//                UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"提示" message:@"访问相册失败" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil];
-//                [alertView show];
-//            }];
-//        });
-//    }
-//    return _groups;
-//}
-//
 @end

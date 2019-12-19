@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17C0882223AA02E300F2D19A /* LMMainPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882123AA02E300F2D19A /* LMMainPickerVC.m */; };
+		17C0882523AA03A100F2D19A /* LMPickerNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882423AA03A100F2D19A /* LMPickerNavBar.m */; };
+		17C0882923AA044C00F2D19A /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882823AA044C00F2D19A /* NSString+Helper.m */; };
+		17C0882E23AA0C6F00F2D19A /* LMPickerStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882D23AA0C6F00F2D19A /* LMPickerStorage.m */; };
+		17C0883123AB6A1800F2D19A /* LMAssetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0883023AB6A1800F2D19A /* LMAssetCell.m */; };
+		17C0883523AB857400F2D19A /* LMPickerDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0883423AB857400F2D19A /* LMPickerDetailVC.m */; };
 		5A3571B91D4B27B600698097 /* NSArray+CheckOutIndex.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A3571B81D4B27B600698097 /* NSArray+CheckOutIndex.m */; };
 		5A69C26A1D47938D007080A7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A69C2691D47938D007080A7 /* main.m */; };
 		5A69C26D1D47938D007080A7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5A69C26C1D47938D007080A7 /* AppDelegate.m */; };
@@ -56,6 +62,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		17C0882023AA02E300F2D19A /* LMMainPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMMainPickerVC.h; sourceTree = "<group>"; };
+		17C0882123AA02E300F2D19A /* LMMainPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMMainPickerVC.m; sourceTree = "<group>"; };
+		17C0882323AA03A100F2D19A /* LMPickerNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMPickerNavBar.h; sourceTree = "<group>"; };
+		17C0882423AA03A100F2D19A /* LMPickerNavBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMPickerNavBar.m; sourceTree = "<group>"; };
+		17C0882723AA044C00F2D19A /* NSString+Helper.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSString+Helper.h"; sourceTree = "<group>"; };
+		17C0882823AA044C00F2D19A /* NSString+Helper.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Helper.m"; sourceTree = "<group>"; };
+		17C0882A23AA056B00F2D19A /* LMPickerDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMPickerDefine.h; sourceTree = "<group>"; };
+		17C0882C23AA0C6F00F2D19A /* LMPickerStorage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMPickerStorage.h; sourceTree = "<group>"; };
+		17C0882D23AA0C6F00F2D19A /* LMPickerStorage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMPickerStorage.m; sourceTree = "<group>"; };
+		17C0882F23AB6A1800F2D19A /* LMAssetCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMAssetCell.h; sourceTree = "<group>"; };
+		17C0883023AB6A1800F2D19A /* LMAssetCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMAssetCell.m; sourceTree = "<group>"; };
+		17C0883323AB857400F2D19A /* LMPickerDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMPickerDetailVC.h; sourceTree = "<group>"; };
+		17C0883423AB857400F2D19A /* LMPickerDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMPickerDetailVC.m; sourceTree = "<group>"; };
 		5A3571B71D4B27B600698097 /* NSArray+CheckOutIndex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+CheckOutIndex.h"; sourceTree = "<group>"; };
 		5A3571B81D4B27B600698097 /* NSArray+CheckOutIndex.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+CheckOutIndex.m"; sourceTree = "<group>"; };
 		5A69C2651D47938D007080A7 /* NewPickImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewPickImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -133,6 +152,50 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17C0881F23AA02BB00F2D19A /* LMPicker */ = {
+			isa = PBXGroup;
+			children = (
+				17C0882B23AA0C5F00F2D19A /* Storage */,
+				17C0882623AA043D00F2D19A /* Helper */,
+				17C0882023AA02E300F2D19A /* LMMainPickerVC.h */,
+				17C0882123AA02E300F2D19A /* LMMainPickerVC.m */,
+				17C0882F23AB6A1800F2D19A /* LMAssetCell.h */,
+				17C0883023AB6A1800F2D19A /* LMAssetCell.m */,
+				17C0882323AA03A100F2D19A /* LMPickerNavBar.h */,
+				17C0882423AA03A100F2D19A /* LMPickerNavBar.m */,
+				17C0883223AB856400F2D19A /* LMPictureDetail */,
+			);
+			path = LMPicker;
+			sourceTree = "<group>";
+		};
+		17C0882623AA043D00F2D19A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				17C0882723AA044C00F2D19A /* NSString+Helper.h */,
+				17C0882823AA044C00F2D19A /* NSString+Helper.m */,
+				17C0882A23AA056B00F2D19A /* LMPickerDefine.h */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		17C0882B23AA0C5F00F2D19A /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				17C0882C23AA0C6F00F2D19A /* LMPickerStorage.h */,
+				17C0882D23AA0C6F00F2D19A /* LMPickerStorage.m */,
+			);
+			path = Storage;
+			sourceTree = "<group>";
+		};
+		17C0883223AB856400F2D19A /* LMPictureDetail */ = {
+			isa = PBXGroup;
+			children = (
+				17C0883323AB857400F2D19A /* LMPickerDetailVC.h */,
+				17C0883423AB857400F2D19A /* LMPickerDetailVC.m */,
+			);
+			path = LMPictureDetail;
+			sourceTree = "<group>";
+		};
 		5A69C25C1D47938D007080A7 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +219,7 @@
 		5A69C2671D47938D007080A7 /* NewPickImage */ = {
 			isa = PBXGroup;
 			children = (
+				17C0881F23AA02BB00F2D19A /* LMPicker */,
 				5A69C2A91D485B6A007080A7 /* MutablePickerImage */,
 				5A69C2A41D479620007080A7 /* PLUS.png */,
 				5A69C2A11D47952B007080A7 /* CFunction.h */,
@@ -304,7 +368,7 @@
 				TargetAttributes = {
 					5A69C2641D47938D007080A7 = {
 						CreatedOnToolsVersion = 7.3.1;
-						DevelopmentTeam = A7H6PE5VV4;
+						DevelopmentTeam = UP5QBD7AK3;
 					};
 					5A69C27D1D47938D007080A7 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -321,6 +385,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -376,7 +441,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17C0883123AB6A1800F2D19A /* LMAssetCell.m in Sources */,
 				5A69C2B81D488A34007080A7 /* UIView+AddSubviews.m in Sources */,
+				17C0883523AB857400F2D19A /* LMPickerDetailVC.m in Sources */,
 				5A69C2AC1D485B9D007080A7 /* MutablePickerController.m in Sources */,
 				5A69C29D1D47940E007080A7 /* PictureSelectedView.m in Sources */,
 				5A69C2B51D4885CA007080A7 /* PHAssetCollection+GetPhotos.m in Sources */,
@@ -387,10 +454,14 @@
 				5A69C26D1D47938D007080A7 /* AppDelegate.m in Sources */,
 				5A69C2AF1D485C97007080A7 /* PhotoAlbumListController.m in Sources */,
 				5A69C2B21D488040007080A7 /* PhotoAlbumCell.m in Sources */,
+				17C0882223AA02E300F2D19A /* LMMainPickerVC.m in Sources */,
 				5A3571B91D4B27B600698097 /* NSArray+CheckOutIndex.m in Sources */,
 				5AAE7A881D49A69500EF88F3 /* UIButton+LP.m in Sources */,
 				5A69C2A81D484D28007080A7 /* MutableImagePickerController.m in Sources */,
 				5A69C26A1D47938D007080A7 /* main.m in Sources */,
+				17C0882E23AA0C6F00F2D19A /* LMPickerStorage.m in Sources */,
+				17C0882523AA03A100F2D19A /* LMPickerNavBar.m in Sources */,
+				17C0882923AA044C00F2D19A /* NSString+Helper.m in Sources */,
 				5A69C2A31D47952B007080A7 /* CFunction.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -535,6 +606,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = UP5QBD7AK3;
 				INFOPLIST_FILE = NewPickImage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -548,6 +620,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEVELOPMENT_TEAM = UP5QBD7AK3;
 				INFOPLIST_FILE = NewPickImage/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
