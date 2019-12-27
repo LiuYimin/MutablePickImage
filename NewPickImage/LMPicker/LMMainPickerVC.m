@@ -11,11 +11,17 @@
 #import "Storage/LMPickerStorage.h"
 #import "LMAssetCell.h"
 
+#define H_Dis 20
+
 @interface LMMainPickerVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UIGestureRecognizerDelegate>
 @property (nonatomic, strong) LMPickerNavBar *navBar;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UICollectionViewFlowLayout *collectionLayout;
 @property (nonatomic, strong) UIPanGestureRecognizer *panGesture;
+
+@property (nonatomic, assign) BOOL beginChanging;//开始批量改变状态
+@property (nonatomic, assign) BOOL beginStatus;//开始选择的状态
+@property (nonatomic, assign) CGPoint beginPoint;
 @end
 
 @implementation LMMainPickerVC
@@ -35,7 +41,7 @@
 - (void)initData
 {
     [[LMPickerStorage shared] judgementHasRight:^(PHAuthorizationStatus status) {
-        NSLog(@"%ld", status);
+        
     }];
     [[LMPickerStorage shared] fetchAllPhotos];
     [self.collectionView reloadData];
@@ -71,7 +77,27 @@
 
 - (void)panGestureAction:(UIPanGestureRecognizer *)gesture
 {
-    NSLog(@"Begin");
+    switch (gesture.state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            self.beginPoint = [gesture locationInView:self.collectionView];
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        case UIGestureRecognizerStateFailed:
+        case UIGestureRecognizerStatePossible:
+        {
+            
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
 }
 
 #pragma mark -- UICollectionViewDelegate, UICollectionViewDataSource

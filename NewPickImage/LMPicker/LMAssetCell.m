@@ -12,6 +12,7 @@
 
 @interface LMAssetCell()
 @property (nonatomic, strong) UIImageView *imageView;
+@property (nonatomic, strong) UIButton *checkButton;
 @end
 
 @implementation LMAssetCell
@@ -32,20 +33,21 @@
 //    NSLog(@"%ld", (unsigned long)[_asset getAssetsInSelfAscending:YES].count);
 //}
 
-- (void)setAsset:(PHAsset *)asset {
+- (void)setAsset:(LMAsset *)asset {
     _asset = asset;
     BOOL original = NO;
     // 是否要原图
-    CGSize size = original ? CGSizeMake(asset.pixelWidth, asset.pixelHeight):CGSizeMake(150, 150);
+    CGSize size = original ? CGSizeMake(asset.asset.pixelWidth, asset.asset.pixelHeight):CGSizeMake(150, 150);
     
     PHImageRequestOptions *options = [[PHImageRequestOptions alloc] init];
     // 同步获得图片, 只会返回1张图片
     options.synchronous = YES;
     
     // 从asset中获得图片
-    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+    [[PHImageManager defaultManager] requestImageForAsset:asset.asset targetSize:size contentMode:PHImageContentModeDefault options:options resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         self.imageView.image = result;
     }];
+    [self updateUI];
 }
 
 #pragma mark -- Lifecycle
@@ -81,15 +83,28 @@
 - (void)initUI
 {
     [self.contentView addSubview:self.imageView];
+    [self.contentView addSubview:self.checkButton];
 }
 
 #pragma mark -- Layout
 - (void)layoutUI
 {
+    CGFloat W = self.bounds.size.width;
     self.imageView.frame = self.contentView.bounds;
+    self.checkButton.frame = CGRectMake(W-25, 0, 25, 25);
+}
+
+- (void)updateUI
+{
+    [self.checkButton setImage:[UIImage imageNamed:(self.asset.isSelected?@"btn_selected":@"btn_unselected")] forState:UIControlStateNormal];
 }
 
 #pragma mark -- Target Action
+- (void)onChecked
+{
+    self.asset.isSelected = !self.asset.isSelected;
+    [self updateUI];
+}
 
 #pragma mark -- ...
 
@@ -101,5 +116,14 @@
         _imageView.clipsToBounds = YES;
     }
     return _imageView;
+}
+
+- (UIButton *)checkButton {
+    if (!_checkButton) {
+        _checkButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [_checkButton setImage:[UIImage imageNamed:@"btn_unselected"] forState:UIControlStateNormal];
+        [_checkButton addTarget:self action:@selector(onChecked) forControlEvents:UIControlEventTouchUpInside];
+    }
+    return _checkButton;
 }
 @end

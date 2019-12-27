@@ -37,7 +37,11 @@ static LMPickerStorage *storage = nil;
     [smartAlbums enumerateObjectsUsingBlock:^(PHAssetCollection  * obj, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([obj isHasPhoto] && ![obj.localizedTitle isEqualToString:@"Videos"] && ![obj.localizedTitle hasPrefix:@"Recently"] && ![obj.localizedTitle isEqualToString:@"Time-lapse"]) {
             NSArray *array = [obj getAssetsInSelfAscending:YES];
-            [self.groups addObjectsFromArray:array];
+            for (PHAsset *asset in array) {
+                LMAsset *lmAsset = [LMAsset new];
+                lmAsset.asset = asset;
+                [self.groups addObject:lmAsset];
+            }
         }
     }];
     
@@ -45,7 +49,11 @@ static LMPickerStorage *storage = nil;
     [userAlbums enumerateObjectsUsingBlock:^(PHAssetCollection * collection, NSUInteger idx, BOOL * _Nonnull stop) {
         if ([collection isHasPhoto]) {
             NSArray *array = [collection getAssetsInSelfAscending:YES];
-            [self.groups addObjectsFromArray:array];
+            for (PHAsset *asset in array) {
+                LMAsset *lmAsset = [LMAsset new];
+                lmAsset.asset = asset;
+                [self.groups addObject:lmAsset];
+            }
         }
     }];
 }

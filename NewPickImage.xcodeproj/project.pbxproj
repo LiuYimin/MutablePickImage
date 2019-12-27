@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		177F6B8A23B09E7F004F43FF /* LMAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 177F6B8923B09E7F004F43FF /* LMAsset.m */; };
 		17C0882223AA02E300F2D19A /* LMMainPickerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882123AA02E300F2D19A /* LMMainPickerVC.m */; };
 		17C0882523AA03A100F2D19A /* LMPickerNavBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882423AA03A100F2D19A /* LMPickerNavBar.m */; };
 		17C0882923AA044C00F2D19A /* NSString+Helper.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0882823AA044C00F2D19A /* NSString+Helper.m */; };
@@ -62,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		177F6B8823B09E7F004F43FF /* LMAsset.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMAsset.h; sourceTree = "<group>"; };
+		177F6B8923B09E7F004F43FF /* LMAsset.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMAsset.m; sourceTree = "<group>"; };
 		17C0882023AA02E300F2D19A /* LMMainPickerVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMMainPickerVC.h; sourceTree = "<group>"; };
 		17C0882123AA02E300F2D19A /* LMMainPickerVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LMMainPickerVC.m; sourceTree = "<group>"; };
 		17C0882323AA03A100F2D19A /* LMPickerNavBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LMPickerNavBar.h; sourceTree = "<group>"; };
@@ -152,9 +155,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		177F6B8723B09C94004F43FF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				177F6B8823B09E7F004F43FF /* LMAsset.h */,
+				177F6B8923B09E7F004F43FF /* LMAsset.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		17C0881F23AA02BB00F2D19A /* LMPicker */ = {
 			isa = PBXGroup;
 			children = (
+				177F6B8723B09C94004F43FF /* Model */,
 				17C0882B23AA0C5F00F2D19A /* Storage */,
 				17C0882623AA043D00F2D19A /* Helper */,
 				17C0882023AA02E300F2D19A /* LMMainPickerVC.h */,
@@ -463,6 +476,7 @@
 				17C0882523AA03A100F2D19A /* LMPickerNavBar.m in Sources */,
 				17C0882923AA044C00F2D19A /* NSString+Helper.m in Sources */,
 				5A69C2A31D47952B007080A7 /* CFunction.m in Sources */,
+				177F6B8A23B09E7F004F43FF /* LMAsset.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

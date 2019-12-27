@@ -7,12 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Photos/Photos.h>
+#import "./Model/LMAsset.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LMAssetCell : UICollectionViewCell
-@property (nonatomic, strong) PHAsset *asset;
+@property (nonatomic, strong) LMAsset *asset;
 @end
 
 NS_ASSUME_NONNULL_END
